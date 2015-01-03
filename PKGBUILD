@@ -1,22 +1,21 @@
-pkgname=google-translate-cli-git
-pkgver=18.8215126
+pkgname=translate-shell
+pkgver=0.8.22.3
 pkgrel=1
 pkgdesc="Google Translate to serve as a command line tool"
 arch=('x86_64')
-url="http://www.soimort.org/google-translate-cli/"
-license=('custom:The Beer-ware License')
-depends=('awk')
-makedepends=('git')
-source=('google-translate-cli::git://github.com/soimort/google-translate-cli.git')
-md5sums=('SKIP')
-
-pkgver() {
-  cd "$srcdir/google-translate-cli"
-  echo $(git rev-list --count master).$(git rev-parse --short master)
-}
+url="http://www.soimort.org/translate-shell/"
+license=('Public Domain')
+provides=('google-translate-cli-git')
+replaces=('google-translate-cli-git')
+conflicts=('google-translate-cli-git')
+depends=('gawk' 'bash' 'fribidi' 'groff')
+source=("https://github.com/soimort/${pkgname}/archive/v${pkgver}.tar.gz")
+md5sums=('a2b6b06813b6c073614f25edb7cdfc3a')
 
 package() {
-  install -Dm0755 "$srcdir/google-translate-cli/translate.awk" "$pkgdir/usr/bin/translate"
-  mkdir -p "$pkgdir/usr/share/licenses/$pkgname"
-  head -n 7 "$srcdir/google-translate-cli/translate.awk" | tail -n +2 > "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+	cd ${pkgname}-${pkgver}
+	install -d "${pkgdir}/usr/bin"
+	make install INSTDIR="${pkgdir}/usr/bin"
+	install -d "${pkgdir}/usr/share/licenses/${pkgname}"
+	install -Dm644 "LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
