@@ -1,4 +1,4 @@
-google-shell
+translate-shell
 ====================
 
 Google Translate to serve as a command line tool
