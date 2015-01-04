@@ -1,6 +1,6 @@
 pkgname=translate-shell
 pkgver=0.8.22.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Google Translate to serve as a command line tool"
 arch=('x86_64')
 url="http://www.soimort.org/translate-shell/"
@@ -9,6 +9,7 @@ provides=('google-translate-cli-git')
 replaces=('google-translate-cli-git')
 conflicts=('google-translate-cli-git')
 depends=('gawk' 'bash' 'fribidi' 'groff')
+optdepends=('rlwrap: A readline wrapper with history')
 source=("https://github.com/soimort/${pkgname}/archive/v${pkgver}.tar.gz")
 md5sums=('a2b6b06813b6c073614f25edb7cdfc3a')
 
