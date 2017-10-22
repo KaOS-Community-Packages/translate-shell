@@ -1,5 +1,5 @@
 pkgname=translate-shell
-pkgver=0.9.6.4
+pkgver=0.9.6.5
 pkgrel=1
 pkgdesc="Google Translate to serve as a command line tool"
 arch=('x86_64')
@@ -8,7 +8,7 @@ license=('Public Domain')
 depends=('gawk' 'bash' 'fribidi' 'groff')
 optdepends=('rlwrap: A readline wrapper with history')
 source=("https://github.com/soimort/${pkgname}/archive/v${pkgver}.tar.gz")
-md5sums=('23f8aecf6eb48276639c24f932807803')
+md5sums=('c5b85f830d199a5e4791e604a727664c')
 
 build() {
 	cd ${pkgname}-${pkgver}
